@@ -1,0 +1,264 @@
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    border-left-width: 4px;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.cardswap {
+    border-left-color: var(--post-swap);
+}
+
+.cardgiveaway {
+    border-left-color: var(--post-giveaway);
+}
+
+.cardrequest {
+    border-left-color: var(--post-request);
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badgeswap {
+    background: var(--post-swap-bg);
+    color: var(--post-swap);
+}
+
+.badgegiveaway {
+    background: var(--post-giveaway-bg);
+    color: var(--post-giveaway);
+}
+
+.badgerequest {
+    background: var(--post-request-bg);
+    color: var(--post-request);
+}
+
+/* Status */
+.status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.statusDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.statusDotactive {
+    background: var(--status-active);
+    box-shadow: 0 0 8px var(--status-active);
+}
+
+.statusDotpending {
+    background: var(--status-pending);
+    animation: pulse 2s infinite;
+}
+
+.statusDotcompleted {
+    background: var(--status-completed);
+}
+
+.statusLabel {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Course Info */
+.courseInfo {
+    margin-bottom: 12px;
+}
+
+.courseId {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: block;
+}
+
+.courseName {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-top: 2px;
+}
+
+/* Section Info */
+.sectionWrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+}
+
+.sectionGroup {
+    flex: 1;
+}
+
+.sectionLabel {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+}
+
+.sectionValue {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.sectionTime {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.arrow {
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* Poster Info */
+.posterInfo {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 0.875rem;
+    margin-bottom: 8px;
+}
+
+.posterName {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.posterMeta {
+    color: var(--text-muted);
+}
+
+/* Contact Info */
+.contactInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: var(--color-accent);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+}
+
+.contactLabel {
+    font-size: 0.875rem;
+    color: var(--text-inverse);
+}
+
+.contactValue {
+    font-weight: 600;
+    color: var(--text-inverse);
+    text-decoration: none;
+}
+
+.contactValue:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.actionBtn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.completeBtn {
+    background: var(--post-giveaway-bg);
+    color: var(--post-giveaway);
+}
+
+.completeBtn:hover {
+    background: var(--post-giveaway);
+    color: white;
+}
+
+.deleteBtn {
+    background: var(--bg-tertiary);
+    color: var(--text-muted);
+}
+
+.deleteBtn:hover {
+    background: var(--status-expired);
+    color: white;
+}
