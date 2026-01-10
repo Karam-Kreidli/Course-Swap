@@ -2,12 +2,19 @@ import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialize Resend to avoid build-time errors
+let resend = null;
+const getResend = () => {
+    if (!resend && process.env.RESEND_API_KEY) {
+        resend = new Resend(process.env.RESEND_API_KEY);
+    }
+    return resend;
+};
 
 // Create Supabase client
 const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 );
 
 export async function POST(request) {
@@ -82,9 +89,9 @@ export async function POST(request) {
         const errors = [];
 
         // Send email to User A
-        if (userAEmail) {
+        if (userAEmail && getResend()) {
             try {
-                await resend.emails.send({
+                await getResend().emails.send({
                     from: 'Course Swap <onboarding@resend.dev>',
                     to: userAEmail,
                     subject: `🔄 Match Found for ${courseCode}!`,
@@ -98,9 +105,9 @@ export async function POST(request) {
         }
 
         // Send email to User B
-        if (userBEmail) {
+        if (userBEmail && getResend()) {
             try {
-                await resend.emails.send({
+                await getResend().emails.send({
                     from: 'Course Swap <onboarding@resend.dev>',
                     to: userBEmail,
                     subject: `🔄 Match Found for ${courseCode}!`,
