@@ -371,7 +371,7 @@ export default function MatchesPage() {
 
                         {/* My Posts */}
                         <section className={styles.section}>
-                            <h2 className={styles.sectionTitle}>My Active Posts ({myPosts.length}/3)</h2>
+                            <h2 className={styles.sectionTitle}>My Active Posts ({myPosts.length}/5)</h2>
 
                             {myPosts.length === 0 ? (
                                 <div className={styles.empty}>
